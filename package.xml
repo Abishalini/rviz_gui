@@ -4,6 +4,7 @@
   <description>
      Tutorial showing how to compile your own C++ program with RViz displays and features.
   </description>
+  <maintainer email="abi@picknik.ai">Abi Sivaraman</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

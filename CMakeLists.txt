@@ -91,3 +91,5 @@ target_link_libraries(${PROJECT_NAME}
 
 ## Install
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION lib/${PROJECT_NAME})
+
+ament_package()

@@ -10,6 +10,8 @@
 
 #include "myviz.h"
 
+static const rclcpp::Logger LOGGER = rclcpp::get_logger("rviz_gui");
+
 // BEGIN_TUTORIAL
 // Constructor for MyViz.  This does most of the work of the class.
 MyViz::MyViz( QWidget* parent )
@@ -43,7 +45,9 @@ MyViz::MyViz( QWidget* parent )
   connect( thickness_slider, SIGNAL( valueChanged( int )), this, SLOT( setThickness( int )));
   connect( cell_size_slider, SIGNAL( valueChanged( int )), this, SLOT( setCellSize( int )));
 
-  rviz_common::ros_integration::RosNodeAbstractionIface::WeakPtr ros_node_abstraction_ = std::weak_ptr<rviz_common::ros_integration::RosNodeAbstractionIface>();
+  RCLCPP_DEBUG_STREAM(LOGGER, "Starting rviz_common initialization");
+
+  rviz_common::ros_integration::RosNodeAbstractionIface::WeakPtr ros_node_abstraction_ = std::shared_ptr<rviz_common::ros_integration::RosNodeAbstractionIface>();
   rviz_common::WindowManagerInterface* wm_ = nullptr;
   rclcpp::Clock::SharedPtr clock_ = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
 
